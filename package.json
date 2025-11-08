@@ -1,0 +1,39 @@
+{
+  "name": "lending-kvartirame4ta",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm:dev:client\" \"npm:dev:server\"",
+    "dev:client": "vite",
+    "dev:server": "tsx watch server.ts",
+    "build:client": "vite build",
+    "build:server": "esbuild server.ts --bundle --platform=node --format=esm --outfile=build/server.js --external:express --external:cors --external:dotenv --external:@google/genai --external:googleapis --external:path --external:url",
+    "build": "npm run build:client && npm run build:server",
+    "start": "node build/server.js",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@google/genai": "^0.15.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "googleapis": "^142.0.0",
+    "express": "^4.19.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.2",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vercel/node": "^3.2.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.13",
+    "@types/express": "^4.17.21",
+    "@types/cors": "^2.8.17",
+    "esbuild": "^0.20.2",
+    "concurrently": "^8.2.2",
+    "tsx": "^4.16.2"
+  }
+}
